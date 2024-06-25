@@ -1,3 +1,23 @@
 ﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: "Naruto", monospace;
+}
+
+@layer components {
+    .btn {
+        @apply text-xl font-bold
+    }
+
+    .primary-btn {
+        @apply hover:text-cyan-400 hover:animate-pulse transition-all duration-200
+    }
+}
+
+@layer utilities {
+    .gradient-naruto {
+        @apply bg-gradient-to-l from-red-600 to-yellow-300
+    }
+}

@@ -554,6 +554,30 @@ video {
   --tw-contain-style:  ;
 }
 
+.btn {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+.primary-btn {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.primary-btn:hover {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --tw-text-opacity: 1;
+  color: rgb(34 211 238 / var(--tw-text-opacity));
+}
+
 .static {
   position: static;
 }
@@ -562,19 +586,38 @@ video {
   display: flex;
 }
 
-.text-8xl {
-  font-size: 6rem;
-  line-height: 1;
+.h-screen {
+  height: 100vh;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
+.flex-col {
+  flex-direction: column;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+          background-clip: text;
 }
 
 .text-4xl {
@@ -582,12 +625,40 @@ video {
   line-height: 2.5rem;
 }
 
-.text-7xl {
-  font-size: 4.5rem;
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
 }
 
-.text-red-500 {
+.font-black {
+  font-weight: 900;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+.text-white {
   --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.gradient-naruto {
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+  --tw-gradient-from: #dc2626 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(220 38 38 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: #fde047 var(--tw-gradient-to-position);
+}
+
+* {
+  font-family: "Naruto", monospace;
 }

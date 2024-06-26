@@ -1,0 +1,41 @@
+﻿.card__container {
+    border-radius: 20px;
+    cursor: pointer;
+    height: 80px;
+    perspective: 150px;
+    width: 80px;
+}
+
+.card__container:hover > .card {
+    transform: rotateY(180deg);
+}
+
+.card {
+    position: relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card,
+.card-front,
+.card-back {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.card-front,
+.card-back {
+    align-items: center;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.card-front {
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}

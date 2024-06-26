@@ -4,11 +4,18 @@
 <div class="h-screen flex flex-col gap-6 items-center justify-center">
   @if (Board is not null)
   {
-    <div class="grid @CalculateGrid()">
+    <div class="grid gap-4 @CalculateGrid()">
       @foreach (var card in Board.Cards)
       {
-        <div>
-          <p>@card.Id</p>
+        <div class="card__container">
+          <div class="card relative h-full w-full">
+            <div class="card-front bg-orange-500">
+              <p>?</p>
+            </div>
+            <div class="card-back bg-yellow-400">
+              <p>@card.Id</p>
+            </div>
+          </div>
         </div>
       }
     </div>

@@ -1,0 +1,21 @@
+﻿@page "/play"
+@using Data.Enums
+@using UI.Components.PlayComponents
+@using UI.Services
+@inject GamesService GamesService
+@rendermode InteractiveServer
+<PageTitle>Play</PageTitle>
+
+@if (GamesService.CurrentStep == GameStep.Username)
+{
+  <UsernamePicker OnUsernameSet="NextStep"/>
+}
+
+@code {
+
+  private void NextStep()
+  {
+    GamesService.CurrentStep++;
+  }
+
+}

@@ -13,7 +13,7 @@ public class Game
   public string? Username { get; set; }
 
   public DateOnly Date { get; set; }
-  public int Score { get; set; }
+  public int Moves { get; set; }
   public DifficultyLevels Difficulty { get; set; }
   public int Time { get; set; }
 }

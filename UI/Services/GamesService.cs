@@ -32,4 +32,11 @@ public class GamesService
     };
     CurrentStep = GameStep.Username;
   }
+
+  public void TryAgain()
+  {
+    Game.Moves = 0;
+    Game.Date = DateOnly.FromDateTime(DateTime.Now);
+    Game.Time = 0;
+  }
 }

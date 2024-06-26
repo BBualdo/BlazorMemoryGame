@@ -1,0 +1,16 @@
+﻿@using UI.Models
+<div @onclick="() => RevealCard.InvokeAsync(Card)" class="card__container @(Card.ShouldBeRemoved ? "hide" : "")">
+  <div class="card relative h-full w-full @(Card.IsRevealed ? "rotated" : "")">
+    <div class="card-front bg-orange-500">
+      <p>?</p>
+    </div>
+    <div class="card-back bg-yellow-400">
+      <p>@Card.Id</p>
+    </div>
+  </div>
+</div>
+
+@code {
+  [Parameter] public Card Card { get; set; }
+  [Parameter] public EventCallback<Card> RevealCard { get; set; }
+}

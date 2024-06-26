@@ -1,7 +1,6 @@
 ﻿@page "/play"
 @using Data.Enums
 @using UI.Components.PlayComponents
-@using UI.Services
 @inject GamesService GamesService
 @rendermode InteractiveServer
 <PageTitle>Play</PageTitle>
@@ -10,12 +9,21 @@
 {
   <UsernamePicker OnUsernameSet="NextStep"/>
 }
+@if (GamesService.CurrentStep == GameStep.Difficulty)
+{
+  <DifficultyPicker OnBack="PreviousStep" OnPlay="NextStep"/>
+}
 
 @code {
 
   private void NextStep()
   {
     GamesService.CurrentStep++;
+  }
+
+  private void PreviousStep()
+  {
+    GamesService.CurrentStep--;
   }
 
 }

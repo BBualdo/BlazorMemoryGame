@@ -1,5 +1,4 @@
-﻿@using UI.Services
-@inject GamesService GamesService;
+﻿@inject GamesService GamesService;
 @inject NavigationManager Navigation;
 
 <div class="h-screen flex items-center justify-center flex-col gap-6">
@@ -26,6 +25,7 @@
 
   private void Back()
   {
+    GamesService.ResetGame();
     Navigation.NavigateTo("..");
   }
 

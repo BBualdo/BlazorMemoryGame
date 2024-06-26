@@ -618,6 +618,10 @@ video {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-20 {
   height: 5rem;
 }

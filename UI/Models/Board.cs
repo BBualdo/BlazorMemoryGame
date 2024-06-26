@@ -16,15 +16,20 @@ public class Board
 
     for (var i = 0; i < Size; i++)
     {
-      var card = new Card
+      var card1 = new Card
       {
         Id = i,
         // TODO: Add Images
         ImagePath = ""
       };
-      // Adding cards twice to create pairs
-      Cards.Add(card);
-      Cards.Add(card);
+      var card2 = new Card
+      {
+        Id = i,
+        ImagePath = card1.ImagePath
+      };
+
+      Cards.Add(card1);
+      Cards.Add(card2);
     }
 
     // Randomly sorting cards

@@ -7,8 +7,8 @@
     <div class="grid gap-4 @CalculateGrid()">
       @foreach (var card in Board.Cards)
       {
-        <div class="card__container">
-          <div class="card relative h-full w-full">
+        <div @onclick="() => RevealCard(card)" class="card__container @(card.ShouldBeRemoved ? "hide" : "")">
+          <div class="card relative h-full w-full @(card.IsRevealed ? "rotated" : "")">
             <div class="card-front bg-orange-500">
               <p>?</p>
             </div>
@@ -26,6 +26,9 @@
 
 @code {
   private Board? Board { get; set; }
+  private Card? FirstRevealedCard { get; set; }
+  private Card? SecondRevealedCard { get; set; }
+  private bool IsChecking { get; set; }
 
   private string CalculateGrid()
   {
@@ -47,6 +50,45 @@
   private void EndGame()
   {
     GamesService.ResetGame();
+  }
+
+  private async Task RevealCard(Card card)
+  {
+    if (IsChecking || card.IsRevealed || card.ShouldBeRemoved)
+      return;
+
+    card.IsRevealed = true;
+    if (FirstRevealedCard is null)
+    {
+      FirstRevealedCard = card;
+      return;
+    }
+
+    SecondRevealedCard = card;
+    IsChecking = true;
+    // Wait 500ms before checking cards pair
+    await Task.Delay(500);
+    CheckPair(FirstRevealedCard, SecondRevealedCard);
+    IsChecking = false;
+  }
+
+  private void CheckPair(Card card1, Card card2)
+  {
+    if (card1.Id != card2.Id)
+    {
+      card1.IsRevealed = false;
+      card2.IsRevealed = false;
+    }
+    else
+    {
+      // Increase score
+      // Remove cards from the board
+      card1.ShouldBeRemoved = true;
+      card2.ShouldBeRemoved = true;
+    }
+
+    FirstRevealedCard = null;
+    SecondRevealedCard = null;
   }
 
 }

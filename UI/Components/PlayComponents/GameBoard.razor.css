@@ -3,11 +3,8 @@
     cursor: pointer;
     height: 80px;
     perspective: 150px;
+    transition: transform 0.3s;
     width: 80px;
-}
-
-.card__container:hover > .card {
-    transform: rotateY(180deg);
 }
 
 .card {
@@ -38,4 +35,12 @@
 
 .card-back {
     transform: rotateY(180deg);
+}
+
+.rotated {
+    transform: rotateY(180deg);
+}
+
+.hide {
+    transform: scale(0);
 }

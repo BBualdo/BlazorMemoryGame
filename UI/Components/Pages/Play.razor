@@ -9,9 +9,13 @@
 {
   <UsernamePicker OnUsernameSet="NextStep"/>
 }
-@if (GamesService.CurrentStep == GameStep.Difficulty)
+else if (GamesService.CurrentStep == GameStep.Difficulty)
 {
   <DifficultyPicker OnBack="PreviousStep" OnPlay="NextStep"/>
+}
+else
+{
+  <GameBoard/>
 }
 
 @code {

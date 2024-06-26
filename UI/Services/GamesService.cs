@@ -30,5 +30,6 @@ public class GamesService
       Difficulty = DifficultyLevels.Medium,
       Date = DateOnly.FromDateTime(DateTime.Now)
     };
+    CurrentStep = GameStep.Username;
   }
 }

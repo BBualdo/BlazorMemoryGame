@@ -1,0 +1,45 @@
+﻿@using UI.Models
+@inject GamesService GamesService
+
+<div class="h-screen flex flex-col gap-6 items-center justify-center">
+  @if (Board is not null)
+  {
+    <div class="grid @CalculateGrid()">
+      @foreach (var card in Board.Cards)
+      {
+        <div>
+          <p>@card.Id</p>
+        </div>
+      }
+    </div>
+  }
+  <button @onclick="EndGame" class="btn primary-btn">End Game</button>
+</div>
+
+
+@code {
+  private Board? Board { get; set; }
+
+  private string CalculateGrid()
+  {
+    return Board!.Size switch
+    {
+      2 => "grid-cols-2",
+      4 => "grid-cols-4",
+      8 => "grid-cols-4",
+      16 => "grid-cols-6",
+      _ => ""
+    };
+  }
+
+  protected override void OnInitialized()
+  {
+    Board = new Board(GamesService.Game.Difficulty);
+  }
+
+  private void EndGame()
+  {
+    GamesService.ResetGame();
+  }
+
+}

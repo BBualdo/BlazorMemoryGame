@@ -1,0 +1,18 @@
+﻿@page "/high-scores"
+@using Data.Models
+@inject IScoresService ScoresService
+
+<QuickGrid Items="Games!.AsQueryable()">
+  <PropertyColumn Property="g => g.Username"/>
+</QuickGrid>
+
+@code {
+  private List<Game>? Games { get; set; }
+
+  protected override async Task OnInitializedAsync()
+  {
+    var games = await ScoresService.GetGameScoresAsync();
+    Games = games;
+  }
+
+}

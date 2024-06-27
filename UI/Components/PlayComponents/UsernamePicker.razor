@@ -1,7 +1,7 @@
 ﻿@inject GamesService GamesService;
 @inject NavigationManager Navigation;
 
-<div class="h-screen flex items-center justify-center flex-col gap-6 bg-gray-500">
+<div class="h-screen flex items-center justify-center flex-col gap-6">
   <h1 class="tracking-widest">Enter your username:</h1>
   <EditForm Model="@GamesService.Game" OnValidSubmit="HandleValidSubmit" FormName="UsernameForm" class="flex flex-col items-center gap-6">
     <DataAnnotationsValidator/>

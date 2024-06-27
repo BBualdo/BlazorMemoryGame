@@ -8,7 +8,7 @@ public class ScoresService(MemoDbContext dbContext) : IScoresService
 {
   private readonly MemoDbContext _dbContext = dbContext;
 
-  public async Task<IEnumerable<Game>> GetGameScoresAsync()
+  public async Task<List<Game>> GetGameScoresAsync()
   {
     return await _dbContext.Games.ToListAsync();
   }

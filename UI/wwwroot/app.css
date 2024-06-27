@@ -637,6 +637,11 @@ video {
   position: relative;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .flex {
   display: flex;
 }
@@ -881,4 +886,30 @@ video {
 .hover\:border-violet-500:hover {
   --tw-border-opacity: 1;
   border-color: rgb(139 92 246 / var(--tw-border-opacity));
+}
+
+@media (min-width: 700px) {
+  .lg\:w-\[400px\] {
+    width: 400px;
+  }
+
+  .lg\:w-\[600px\] {
+    width: 600px;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
+  }
+
+  .lg\:gap-20 {
+    gap: 5rem;
+  }
+
+  .lg\:gap-40 {
+    gap: 10rem;
+  }
 }

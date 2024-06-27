@@ -10,7 +10,7 @@
   {
     @if (Games.Count > 0)
     {
-      <QuickGrid Items="Games.AsQueryable()">
+      <QuickGrid Items="Games.AsQueryable()" Class="mx-auto">
         <PropertyColumn Class="column" Property="g => g.Username"/>
         <PropertyColumn Class="column" Property="g => g.Difficulty"/>
         <PropertyColumn Class="column" Property="g => g.Moves"/>

@@ -24,11 +24,4 @@ public class ScoresService(MemoDbContext dbContext) : IScoresService
     _dbContext.Games.Remove(game);
     await _dbContext.SaveChangesAsync();
   }
-
-  public async Task DeleteAllGameScoresAsync()
-  {
-    var games = await _dbContext.Games.ToListAsync();
-    _dbContext.Games.RemoveRange(games);
-    await _dbContext.SaveChangesAsync();
-  }
 }

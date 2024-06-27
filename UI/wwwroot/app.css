@@ -555,6 +555,11 @@ video {
 }
 
 .btn {
+  border-radius: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 700;
@@ -578,6 +583,24 @@ video {
   color: rgb(249 115 22 / var(--tw-text-opacity));
 }
 
+.warning-btn {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.warning-btn:hover {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 .input {
   font-family: "Inconsolata", monospace;
   border-radius: 9999px;
@@ -592,6 +615,18 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
   outline-width: 4px;
   outline-color: #f97316;
+}
+
+.column {
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(249 115 22 / var(--tw-border-opacity));
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  font-family: "Inconsolata", monospace;
 }
 
 .static {
@@ -664,10 +699,6 @@ video {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.gap-40 {
-  gap: 10rem;
 }
 
 .gap-6 {
@@ -756,6 +787,10 @@ video {
 
 .font-black {
   font-weight: 900;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .uppercase {

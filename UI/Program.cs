@@ -1,3 +1,5 @@
+using Data;
+using Microsoft.EntityFrameworkCore;
 using UI.Components;
 using UI.Services;
 
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
   .AddInteractiveServerComponents();
+builder.Services.AddDbContext<MemoDbContext>(options =>
+  options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddSingleton<GamesService>();
 
 var app = builder.Build();

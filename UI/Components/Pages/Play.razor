@@ -1,7 +1,8 @@
 ﻿@page "/play"
+@inject GamesService GamesService
 @using Data.Enums
 @using UI.Components.PlayComponents
-@inject GamesService GamesService
+@implements IDisposable
 @rendermode InteractiveServer
 
 @if (GamesService.CurrentStep == GameStep.Username)
@@ -27,6 +28,11 @@ else
   private void PreviousStep()
   {
     GamesService.CurrentStep--;
+  }
+
+  public void Dispose()
+  {
+    GamesService.ResetGame();
   }
 
 }

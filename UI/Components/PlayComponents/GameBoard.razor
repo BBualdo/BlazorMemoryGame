@@ -1,6 +1,7 @@
-﻿@using Data.Models
+﻿@inject GamesService GamesService
+@using Data.Models
 @using UI.Models
-@inject GamesService GamesService
+@implements IDisposable
 
 <div class="h-screen flex flex-col gap-20 items-center justify-center p-4">
   @if (Board is not null && !IsGameOver)
@@ -12,7 +13,7 @@
       </div>
       <div class="flex border-2 border-white">
         <div class="bg-white text-black py-2 px-4">Time</div>
-        <div class="bg-black text-white py-2 px-2">00:00</div>
+        <div class="bg-black text-white py-2 px-2">@Game!.Time.ToString(@"mm\:ss")</div>
       </div>
     </div>
     <div class="grid gap-4 @CalculateGrid()">
@@ -37,6 +38,7 @@
   private bool IsChecking { get; set; }
   private Game? Game { get; set; }
   private bool IsGameOver { get; set; }
+  private Timer? Timer { get; set; }
 
   private string CalculateGrid()
   {
@@ -59,9 +61,10 @@
   {
     Game = GamesService.Game;
     Game.Moves = 0;
-    Game.Time = 0;
+    Game.Time = TimeSpan.Zero;
     Board = new Board(GamesService.Game.Difficulty);
     IsGameOver = false;
+    Timer = new Timer(CountTime, null, 1000, 1000);
   }
 
   private async Task RevealCard(Card card)
@@ -107,13 +110,30 @@
   private void CheckGameOver()
   {
     if (Board!.Cards.All(c => c.ShouldBeRemoved))
+    {
       IsGameOver = true;
+      Timer.Dispose();
+    }
+  }
+
+  private void CountTime(object? source)
+  {
+    InvokeAsync(() =>
+    {
+      Game!.Time = Game.Time.Add(TimeSpan.FromSeconds(1));
+      StateHasChanged();
+    });
   }
 
   private void TryAgain()
   {
     GamesService.TryAgain();
     InitializeBoard();
+  }
+
+  public void Dispose()
+  {
+    Timer?.Dispose();
   }
 
 }

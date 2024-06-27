@@ -37,6 +37,6 @@ public class GamesService
   {
     Game.Moves = 0;
     Game.Date = DateOnly.FromDateTime(DateTime.Now);
-    Game.Time = 0;
+    Game.Time = TimeSpan.Zero;
   }
 }

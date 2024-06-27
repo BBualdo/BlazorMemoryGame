@@ -8,7 +8,6 @@ public class Board
   {
     Size = difficultyLevel switch
     {
-      DifficultyLevels.Testing => 2, // TODO: Remove this case
       DifficultyLevels.Easy => 4,
       DifficultyLevels.Hard => 16,
       _ => 8

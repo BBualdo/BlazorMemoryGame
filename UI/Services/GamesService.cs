@@ -35,6 +35,7 @@ public class GamesService
 
   public void TryAgain()
   {
+    Game.Id = 0;
     Game.Moves = 0;
     Game.Date = DateOnly.FromDateTime(DateTime.Now);
     Game.Time = TimeSpan.Zero;

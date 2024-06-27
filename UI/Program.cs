@@ -11,6 +11,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddDbContext<MemoDbContext>(options =>
   options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddSingleton<GamesService>();
+builder.Services.AddScoped<IScoresService, ScoresService>();
 
 var app = builder.Build();
 

@@ -1,6 +1,7 @@
 ﻿@using Data.Models
 @inject GamesService GamesService
 @inject NavigationManager Navigation
+@inject IScoresService ScoresService
 
 <div class="flex flex-col items-center gap-10">
   <div class="flex flex-col items-center gap-6">
@@ -21,9 +22,10 @@
   private Game Game { get; set; }
   [Parameter] public EventCallback OnTryAgain { get; set; }
 
-  protected override void OnInitialized()
+  protected override async Task OnInitializedAsync()
   {
     Game = GamesService.Game;
+    await ScoresService.AddGameScoreAsync(Game);
   }
 
   private void ReturnToMainMenu()

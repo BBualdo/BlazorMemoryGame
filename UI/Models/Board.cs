@@ -19,8 +19,7 @@ public class Board
       var card1 = new Card
       {
         Id = i,
-        // TODO: Add Images
-        ImagePath = ""
+        ImagePath = $"/images/{i + 1}.png"
       };
       var card2 = new Card
       {
@@ -36,6 +35,6 @@ public class Board
     Cards = Cards.OrderBy(c => Guid.NewGuid()).ToList();
   }
 
-  public int Size { get; set; }
+  public double Size { get; set; }
   public List<Card> Cards { get; set; } = [];
 }

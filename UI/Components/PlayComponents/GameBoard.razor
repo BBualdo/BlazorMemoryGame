@@ -3,7 +3,7 @@
 @using UI.Models
 @implements IDisposable
 
-<div class="h-screen flex flex-col gap-20 items-center justify-center p-4">
+<div class="min-h-screen flex flex-col gap-20 items-center justify-center p-4">
   @if (Board is not null && !IsGameOver)
   {
     <div class="flex justify-between lg:w-[600px] items-center w-full">
@@ -47,7 +47,7 @@
       2 => "grid-cols-2",
       4 => "grid-cols-4",
       8 => "grid-cols-4",
-      16 => "grid-cols-6",
+      16 => "grid-cols-8",
       _ => ""
     };
   }

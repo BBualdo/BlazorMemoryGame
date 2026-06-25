@@ -14,6 +14,6 @@ public class Game
 
   public DateOnly Date { get; set; }
   public int Moves { get; set; }
-  public DifficultyLevels Difficulty { get; set; }
+  public DifficultyLevel Difficulty { get; set; }
   public TimeSpan Time { get; set; }
 }

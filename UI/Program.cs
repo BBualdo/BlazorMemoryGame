@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
   .AddInteractiveServerComponents();
 builder.Services.AddDbContext<MemoDbContext>(options =>
-  options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+  options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddSingleton<GamesService>();
 builder.Services.AddScoped<IScoresService, ScoresService>();
 

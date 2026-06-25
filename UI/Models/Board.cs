@@ -4,12 +4,12 @@ namespace UI.Models;
 
 public class Board
 {
-  public Board(DifficultyLevels difficultyLevel)
+  public Board(DifficultyLevel difficultyLevel)
   {
     Size = difficultyLevel switch
     {
-      DifficultyLevels.Easy => 4,
-      DifficultyLevels.Hard => 16,
+      DifficultyLevel.Easy => 4,
+      DifficultyLevel.Hard => 16,
       _ => 8
     };
 

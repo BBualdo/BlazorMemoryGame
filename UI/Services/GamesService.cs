@@ -9,7 +9,7 @@ public class GamesService
 
   public Game Game = new()
   {
-    Difficulty = DifficultyLevels.Medium,
+    Difficulty = DifficultyLevel.Medium,
     Date = DateOnly.FromDateTime(DateTime.Now)
   };
 
@@ -18,7 +18,7 @@ public class GamesService
     Game.Username = username;
   }
 
-  public void SetDifficulty(DifficultyLevels difficulty)
+  public void SetDifficulty(DifficultyLevel difficulty)
   {
     Game.Difficulty = difficulty;
   }
@@ -27,7 +27,7 @@ public class GamesService
   {
     Game = new Game
     {
-      Difficulty = DifficultyLevels.Medium,
+      Difficulty = DifficultyLevel.Medium,
       Date = DateOnly.FromDateTime(DateTime.Now)
     };
     CurrentStep = GameStep.Username;

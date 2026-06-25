@@ -1,6 +1,6 @@
 ﻿namespace Data.Enums;
 
-public enum DifficultyLevels
+public enum DifficultyLevel
 {
   Easy,
   Medium,

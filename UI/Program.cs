@@ -10,7 +10,7 @@ builder.Services.AddRazorComponents()
   .AddInteractiveServerComponents();
 builder.Services.AddDbContext<MemoDbContext>(options =>
   options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
-builder.Services.AddSingleton<GamesService>();
+builder.Services.AddSingleton<IGamesService, GamesService>();
 builder.Services.AddScoped<IScoresService, ScoresService>();
 
 var app = builder.Build();

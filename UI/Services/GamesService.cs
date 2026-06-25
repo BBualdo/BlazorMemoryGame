@@ -3,11 +3,11 @@ using Data.Models;
 
 namespace UI.Services;
 
-public class GamesService
+public class GamesService : IGamesService
 {
-  public GameStep CurrentStep = GameStep.Username;
+  public GameStep CurrentStep { get; set; } = GameStep.Username;
 
-  public Game Game = new()
+  public Game Game { get; set; } = new()
   {
     Difficulty = DifficultyLevel.Medium,
     Date = DateOnly.FromDateTime(DateTime.Now)

@@ -12,6 +12,14 @@
         <div class="bg-black text-white py-2 px-2">@Game!.Moves</div>
       </div>
       <div class="flex border-2 border-white">
+        <div class="bg-white text-black py-2 px-4">Matches</div>
+        <div class="bg-black text-white py-2 px-2">@Game!.Matches</div>
+      </div>
+      <div class="flex border-2 border-white">
+        <div class="bg-white text-black py-2 px-4">Fails</div>
+        <div class="bg-black text-white py-2 px-2">@Game!.Fails</div>
+      </div>
+      <div class="flex border-2 border-white">
         <div class="bg-white text-black py-2 px-4">Time</div>
         <div class="bg-black text-white py-2 px-2">@Game!.Time.ToString(@"mm\:ss")</div>
       </div>
@@ -61,6 +69,8 @@
   {
     Game = GamesService.Game;
     Game.Moves = 0;
+    Game.Matches = 0;
+    Game.Fails = 0;
     Game.Time = TimeSpan.Zero;
     Board = new Board(GamesService.Game.Difficulty);
     IsGameOver = false;
@@ -89,15 +99,17 @@
 
   private void CheckPair(Card card1, Card card2)
   {
-    Game.Moves++;
+    Game!.Moves++;
 
     if (card1.Id != card2.Id)
     {
+      Game.Fails++;
       card1.IsRevealed = false;
       card2.IsRevealed = false;
     }
     else
     {
+      Game.Matches++;
       card1.ShouldBeRemoved = true;
       card2.ShouldBeRemoved = true;
       CheckGameOver();
@@ -112,7 +124,7 @@
     if (Board!.Cards.All(c => c.ShouldBeRemoved))
     {
       IsGameOver = true;
-      Timer.Dispose();
+      Timer!.Dispose();
     }
   }
 

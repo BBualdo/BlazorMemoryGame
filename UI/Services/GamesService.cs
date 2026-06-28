@@ -37,6 +37,8 @@ public class GamesService : IGamesService
   {
     Game.Id = 0;
     Game.Moves = 0;
+    Game.Matches = 0;
+    Game.Fails = 0;
     Game.Date = DateOnly.FromDateTime(DateTime.Now);
     Game.Time = TimeSpan.Zero;
   }
